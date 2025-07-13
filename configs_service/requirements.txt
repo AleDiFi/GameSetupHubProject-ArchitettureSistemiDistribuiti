@@ -1,1 +1,4 @@
-# requirements.txt placeholder
+fastapi
+uvicorn
+pymongo
+python-jose[cryptography]
