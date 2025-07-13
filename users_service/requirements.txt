@@ -1,1 +1,7 @@
-# requirements.txt placeholder
+fastapi
+uvicorn
+pymongo
+python-jose[cryptography]
+passlib[bcrypt]
+email-validator
+python-multipart
