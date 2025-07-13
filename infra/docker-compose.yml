@@ -1,1 +1,28 @@
-# docker-compose.yml placeholder
+services:
+  mongo:
+    image: mongo:6
+    container_name: mongo
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo_data:/data/db
+
+  user-service:
+    build:
+      context: ../users_service
+    ports:
+      - "8001:8000"
+    environment:
+      - MONGO_URI=mongodb://mongo:27017/
+
+  configs-service:
+    build:
+      context: ../configs_service
+    ports:
+      - "8002:8000"
+    environment:
+      - MONGO_URI=mongodb://mongo:27017/
+
+
+volumes:
+  mongo_data:
